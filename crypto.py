@@ -35,8 +35,6 @@ for row in table_row[1:6]:
 
     price_diff = round((1-change)*price,2)
 
-    print(f'Rank: {rank}\nName:{name}Price: ${price}\nPercent Change: %{percent_24}\nOriginal Price: ${price_diff}\n')
-        
     ranking+=1
     if ranking == 1:
         if price <40000:
@@ -50,10 +48,11 @@ for row in table_row[1:6]:
             textmessage = client.messages.create(to=myCellPhone,from_=TwilioNumber,body=message)
             print(textmessage.status)
 
+    print(f'Rank: {rank}\nName:{name}Price: ${price}\nPercent Change: %{percent_24}\nOriginal Price: ${price_diff}\n')
+        
 
 
 
-            
 '''import keys2 as keys2
 from twilio.rest import Client
 client = Client(keys2.accountSID,keys2.authToken)
