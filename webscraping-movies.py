@@ -27,12 +27,12 @@ for row in table_row[1:6]:
         theaters = td[6].text
         total_gross = td[7].text
         distributor = td[8].text
-        print('Rank: ',rank)
-        print('release: ',release)
-        print('gross: ',gross)
-        print('theaters: ',theaters)
-        print('total gross: ',total_gross)
-        print('distributor: ',distributor)
+        print(f'Rank: {rank}\nRelease: {release}\nGross: {gross}\nTheaters: {theaters}\nTotal Gross: {total_gross}\nDistributor: {distributor}\n\n')
+        #print('release: ',release)
+        #print('gross: ',gross)
+        #print('theaters: ',theaters)
+        #print('total gross: ',total_gross)
+        #print('distributor: ',distributor)
     ranking+=1
 
 ##

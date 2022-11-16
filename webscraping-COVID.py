@@ -38,7 +38,8 @@ low_test_rate = 100
 for row in table_rows[2:51]:
     td = row.findAll("td")
 
-    state = td[1].text
+    state = td[1].text.strip('\n')
+    
     total_cases =int(td[2].text.replace(",",""))
     total_deaths =int(td[4].text.replace(",",""))
     total_tests =int(td[10].text.replace(",",""))
@@ -47,66 +48,26 @@ for row in table_rows[2:51]:
     death_rate = round((total_deaths/total_cases) *100,2)
     test_rate = round((total_tests/population) * 100,2)
     
-    if death_rate > high_death_ratio:
+    if death_rate > high_death_rate:
         state_worst_death = state
         high_death_rate = death_rate
 
-    if death_rate < low_death_ratio:
+    if death_rate < low_death_rate:
         state_best_death = state
-        low_death_ratio= death_rate
+        low_death_rate= death_rate
     
-    if test_rate > high_test_ratio:
+    if test_rate > high_test_rate:
         state_best_test = state
-        high_test_ratio = test_rate
+        high_test_rate = test_rate
     
-    if test_rate < low_test_ratio:
+    if test_rate < low_test_rate:
         state_worst_test = state
-        low_test_ratio = test_rate
+        low_test_rate = test_rate
 
-
-    print(f"state with the worst death rate: {state_worst_death}")
-    print(f"Death Rate: {high_death_ratio}%")
-    print()
-    print()
-    print(f"state with the best death rate: {state_best_death}")
-    print(f"Death Rate: {low_death_ratio}%")
-    print()
-    print()
-    print(f"State with the worst test rate: {state_worst_test}")
-    print(f"Death Rate: {low_test_ratio}%")
-    print()
-    print()
-      
-    print(f"state with the worst death rate: {state_best_death}")
-    print(f"Death Rate: {low_death_ratio}%")
-    print()
-    print()
-    print(f"state with the best death rate: {state_worst_death}")
-    print(f"Death Rate: {low_death_ratio}%")
-    print()
-    print()
-    print(f"State with the worst test rate: {state_worst_test}")
-    print(f"Death Rate: {low_test_ratio}%")
-    print()
-    print()
-
-
-
-
-
-    print(f"State: {state} ")
-    print(f"Total Cases: {total_cases}")
-    print(f"Total Deaths: {total_deaths}")
-    print(f"Total Tests: {total_tests}")
-    print(f"Population: {population}")
-    print(f"Death Rate: {death_rate}")
-    print(f"Test Rate: {test_rate}")
-    
-
-    input()
-
-
-
+print(f'Highest Death Rate: {state_worst_death}\t{high_death_rate}%\n')
+print(f'Lowest Death Rate: {state_best_death}\t{low_death_rate}%\n')
+print(f'Highest Test Rate: {state_best_test}\t{high_test_rate}%\n')
+print(f'Lowest Test Rate : {state_worst_test}\t{low_test_rate}%\n')
 
 #SOME USEFUL FUNCTIONS IN BEAUTIFULSOUP
 #-----------------------------------------------#
